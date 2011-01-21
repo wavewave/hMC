@@ -4,6 +4,28 @@ module HEP.MonteCarlo.Plain where
 
 import System.Random.Mersenne
 
+plain1DMC :: (Double -> IO Double) 
+             -> Int 
+             -> IO Double 
+plain1DMC integrand num  = do  
+  g <- getStdGen 
+  let go :: Double -> Int -> IO Double 
+      go !accr !accn   
+        | accn <= 0 = 
+          return accr
+        | otherwise = do 
+          x1 <- random g :: IO Double 
+          itr <- integrand x1 
+          if isNaN itr 
+            then putStrLn $ show (x1,itr)
+            else return ()
+          go (accr + itr) (accn-1) 
+      
+  r <- go 0.0 num 
+  return $ r/fromIntegral num 
+
+
+
 plain2DMC :: ((Double,Double) -> IO Double) 
              -> Int 
              -> IO Double 
