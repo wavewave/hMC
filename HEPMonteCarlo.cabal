@@ -1,8 +1,8 @@
 Name:		HEPMonteCarlo
-Version:	0.1.0.0
+Version:	0.1.0.1
 Synopsis:	Monte Carlo Integration Routine
 Description: 	Monte Carlo integration program for HEP projects    
-License: 	GPL-3
+License: 	BSD3
 License-file:	LICENSE
 Author:		Ian-Woo Kim
 Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
