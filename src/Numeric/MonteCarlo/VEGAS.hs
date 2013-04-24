@@ -1,6 +1,20 @@
 {-# LANGUAGE BangPatterns, PackageImports #-}
 
-module HEP.MonteCarlo.Vegas where
+-----------------------------------------------------------------------------
+-- |
+-- Module      : Numeric.MonteCarlo.VEGAS
+-- Copyright   : (c) 2011, 2013 Ian-Woo Kim
+--
+-- License     : GPL-3
+-- Maintainer  : Ian-Woo Kim <ianwookim@gmail.com>
+-- Stability   : experimental
+-- Portability : GHC
+--
+-- VEGAS Monte Carlo integration algorithm  
+--
+-----------------------------------------------------------------------------
+
+module Numeric.MonteCarlo.VEGAS where
 
 import System.Random.Mersenne
 
@@ -9,9 +23,7 @@ import Data.Array
 import Control.Monad.State
 import Control.Monad.IO.Class
 
-
-
-
+-- | 2D integration specification
 data SamplingParameter2D = SP2D { 
   xStart  :: Double,  
   xEnd    :: Double, 

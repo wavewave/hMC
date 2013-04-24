@@ -1,0 +1,22 @@
+Name:		hMC
+Version:	0.0.999
+Synopsis:	Monte Carlo Integration Routine
+Description: 	Monte Carlo integration algorithms implemented using haskell      
+License: 	GPL-3
+License-file:	LICENSE
+Author:		Ian-Woo Kim
+Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
+Build-Depends:	base>4, 
+                mersenne-random, 
+                mtl > 2, 
+                transformers, 
+                array
+Build-Type: 	Simple
+
+hs-source-dirs: src
+ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
+ghc-prof-options: -caf-all -auto-all
+
+Exposed-Modules: 
+		 Numeric.MonteCarlo.Plain
+		 Numeric.MonteCarlo.VEGAS

@@ -1,9 +1,24 @@
 {-# LANGUAGE BangPatterns #-}
 
-module HEP.MonteCarlo.Plain where
+-----------------------------------------------------------------------------
+-- |
+-- Module      : Numeric.MonteCarlo.Plain
+-- Copyright   : (c) 2011, 2013 Ian-Woo Kim
+--
+-- License     : GPL-3
+-- Maintainer  : Ian-Woo Kim <ianwookim@gmail.com>
+-- Stability   : experimental
+-- Portability : GHC
+--
+-- Plain non-adaptive monte carlo integration algorithm  
+--
+-----------------------------------------------------------------------------
+
+module Numeric.MonteCarlo.Plain where
 
 import System.Random.Mersenne
 
+-- | 1D integration
 plain1DMC :: (Double -> IO Double) 
              -> Int 
              -> IO Double 
@@ -25,7 +40,7 @@ plain1DMC integrand num  = do
   return $ r/fromIntegral num 
 
 
-
+-- | 2D integration
 plain2DMC :: ((Double,Double) -> IO Double) 
              -> Int 
              -> IO Double 
@@ -47,7 +62,7 @@ plain2DMC integrand num  = do
   r <- go 0.0 num 
   return $ r/fromIntegral num 
 
-
+-- | 3D integration
 plain3DMC :: ((Double,Double,Double) -> IO Double) 
              -> Int 
              -> IO Double 
